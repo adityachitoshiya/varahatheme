@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>{{ page_title }}{% unless page_title contains shop.name %} — {{ shop.name }}{% endunless %}</title>
+
+  {% if page_description %}
+    <meta name="description" content="{{ page_description | escape }}">
+  {% endif %}
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ 'apple-touch-icon.png' | asset_url }}" type="image/png">
+  <link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | asset_url }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ page_description | default: shop.description | escape }}">
+  <meta property="og:image" content="{{ 'og.jpg' | asset_url }}">
+  <meta property="og:site_name" content="{{ shop.name }}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page_title }}">
+  <meta name="twitter:description" content="{{ page_description | default: shop.description | escape }}">
+  <meta name="twitter:image" content="{{ 'og.jpg' | asset_url }}">
+
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+  <!-- Base CSS -->
+  {{ 'base.css' | asset_url | stylesheet_tag }}
+
+  <!-- Section CSS (loaded per section) -->
+  {{ 'component-header.css' | asset_url | stylesheet_tag }}
+  {{ 'component-footer.css' | asset_url | stylesheet_tag }}
+
+  <!-- Shopify Content for Header -->
+  {{ content_for_header }}
+
+  <!-- Structured Data: Organization -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "JewelryStore",
+      "name": "{{ shop.name }}",
+      "description": "{{ shop.description | escape }}",
+      "url": "{{ shop.url }}",
+      "logo": "{{ 'logo.png' | asset_url }}",
+      "telephone": "{{ settings.contact_phone }}",
+      "email": "{{ settings.contact_email }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jaipur",
+        "addressRegion": "Rajasthan",
+        "postalCode": "302031",
+        "addressCountry": "IN"
+      },
+      "priceRange": "₹₹₹",
+      "currenciesAccepted": "INR",
+      "sameAs": [
+        "{{ settings.social_instagram }}",
+        "{{ settings.social_facebook }}",
+        "{{ settings.social_twitter }}"
+      ]
+    }
+  </script>
+
+  <!-- Structured Data: WebSite -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "{{ shop.name }}",
+      "url": "{{ shop.url }}",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ shop.url }}/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+</head>
+
+<body class="template-{{ template.name | handle }}{% if template.suffix %} template-{{ template.name }}-{{ template.suffix | handle }}{% endif %}">
+
+  <a href="#main-content" class="visually-hidden">Skip to content</a>
+
+  {% sections 'header-group' %}
+
+  <main id="main-content" role="main">
+    {{ content_for_layout }}
+  </main>
+
+  {% sections 'footer-group' %}
+
+  <!-- Back to Top -->
+  {% section 'back-to-top' %}
+
+  <!-- Theme JS -->
+  <script src="{{ 'theme.js' | asset_url }}" defer></script>
+
+</body>
+</html>

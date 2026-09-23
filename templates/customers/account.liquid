@@ -1,0 +1,53 @@
+{% comment %} Varaha Jewels — Customer Account {% endcomment %}
+
+<section style="padding:3rem 0 6rem;background:var(--warm-sand);min-height:60vh;">
+  <div class="container" style="max-width:56rem;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:1rem;">
+      <div>
+        <h1 style="font-family:var(--font-royal);font-size:2.5rem;font-weight:700;color:var(--heritage);">My Account</h1>
+        <p style="color:rgba(122,59,35,0.6);">Welcome back, {{ customer.first_name }}!</p>
+      </div>
+      <a href="/account/logout" style="color:var(--copper);font-weight:500;text-decoration:none;font-size:0.875rem;padding:0.5rem 1rem;border:1px solid rgba(163,86,42,0.3);border-radius:0.5rem;transition:all 0.2s;">Sign Out</a>
+    </div>
+
+    <!-- Order History -->
+    <div style="background:white;border-radius:0.75rem;padding:2rem;border:1px solid rgba(163,86,42,0.2);margin-bottom:2rem;">
+      <h2 style="font-family:var(--font-royal);font-size:1.5rem;color:var(--heritage);margin-bottom:1.5rem;">Order History</h2>
+
+      {% if customer.orders.size > 0 %}
+        {% for order in customer.orders %}
+          <div style="padding:1rem 0;border-bottom:1px solid rgba(163,86,42,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
+            <div>
+              <a href="{{ order.customer_url }}" style="color:var(--copper);font-weight:600;text-decoration:none;">{{ order.name }}</a>
+              <p style="font-size:0.875rem;color:rgba(122,59,35,0.5);">{{ order.created_at | date: '%B %d, %Y' }}</p>
+            </div>
+            <div style="text-align:right;">
+              <p style="font-weight:500;color:var(--heritage);">{{ order.total_price | money }}</p>
+              <span style="font-size:0.75rem;padding:0.125rem 0.5rem;border-radius:9999px;{% if order.fulfillment_status == 'fulfilled' %}background:rgba(22,163,74,0.1);color:#15803d;{% else %}background:rgba(163,86,42,0.1);color:var(--copper);{% endif %}">
+                {{ order.fulfillment_status_label }}
+              </span>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p style="color:rgba(122,59,35,0.5);text-align:center;padding:2rem 0;">No orders yet.</p>
+        <div style="text-align:center;">
+          <a href="/collections/all" class="btn btn-primary" style="padding:0.75rem 2rem;">Start Shopping</a>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Account Details -->
+    <div style="background:white;border-radius:0.75rem;padding:2rem;border:1px solid rgba(163,86,42,0.2);">
+      <h2 style="font-family:var(--font-royal);font-size:1.5rem;color:var(--heritage);margin-bottom:1rem;">Account Details</h2>
+      <p style="color:var(--heritage);font-weight:500;">{{ customer.name }}</p>
+      <p style="color:rgba(122,59,35,0.6);font-size:0.875rem;">{{ customer.email }}</p>
+      {% if customer.default_address %}
+        <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(163,86,42,0.1);">
+          <p style="font-size:0.875rem;color:rgba(122,59,35,0.7);">{{ customer.default_address | format_address }}</p>
+        </div>
+      {% endif %}
+      <a href="/account/addresses" style="display:inline-block;margin-top:1rem;color:var(--copper);font-weight:500;text-decoration:none;font-size:0.875rem;">Manage Addresses →</a>
+    </div>
+  </div>
+</section>

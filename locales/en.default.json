@@ -1,0 +1,92 @@
+{
+  "general": {
+    "shop_name": "Varaha Jewels",
+    "cart": "Cart",
+    "search": "Search",
+    "close": "Close",
+    "skip_content": "Skip to content",
+    "currency_format": "₹{{amount}}"
+  },
+  "header": {
+    "menu": "Menu",
+    "cart_count": "{{ count }} items",
+    "search_placeholder": "Search for jewelry..."
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to Cart",
+      "sold_out": "Sold Out",
+      "unavailable": "Unavailable",
+      "price": "Price",
+      "compare_at_price": "Compare at price",
+      "quantity": "Quantity",
+      "description": "Description"
+    }
+  },
+  "collections": {
+    "general": {
+      "no_matches": "No products matched your selection.",
+      "items_count": "{{ count }} products"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Your Cart",
+      "empty": "Your cart is empty",
+      "subtotal": "Subtotal",
+      "checkout": "Checkout",
+      "continue_shopping": "Continue Shopping",
+      "remove": "Remove",
+      "taxes_and_shipping": "Taxes and shipping calculated at checkout"
+    }
+  },
+  "customer": {
+    "login": {
+      "title": "Welcome Back",
+      "email": "Email",
+      "password": "Password",
+      "sign_in": "Sign In",
+      "forgot_password": "Forgot your password?",
+      "create_account": "Create Account"
+    },
+    "register": {
+      "title": "Join Our Royal Family",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create Account"
+    },
+    "account": {
+      "title": "My Account",
+      "orders": "Order History",
+      "details": "Account Details",
+      "addresses": "Addresses",
+      "logout": "Sign Out"
+    },
+    "orders": {
+      "title": "Order History",
+      "order_number": "Order",
+      "date": "Date",
+      "total": "Total",
+      "fulfillment_status": "Status",
+      "none": "You haven't placed any orders yet."
+    }
+  },
+  "newsletter": {
+    "title": "Join Our Royal Family",
+    "description": "Get exclusive access to new collections, special offers, and royal treatment.",
+    "email_placeholder": "Enter your email address",
+    "submit": "Subscribe Now",
+    "success": "Thank you for subscribing!"
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to content",
+    "close": "Close",
+    "menu": "Menu",
+    "cart": "Cart",
+    "search": "Search",
+    "previous": "Previous",
+    "next": "Next"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "a1": { "type": "announcement", "settings": { "text": "✨ Free Shipping on orders above ₹5000 | Use code VARAHA10 for 10% off" } },
+        "a2": { "type": "announcement", "settings": { "text": "🎁 New Collection Launch — Heritage Series Now Available" } }
+      },
+      "block_order": ["a1", "a2"]
+    },
+    "header": {
+      "type": "header",
+      "settings": {}
+    }
+  },
+  "order": ["announcement-bar", "header"]
+}

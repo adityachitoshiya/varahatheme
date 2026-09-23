@@ -1,0 +1,172 @@
+{% comment %}
+  Varaha Jewels — Hero Slideshow
+  Full-screen carousel with warm overlays and CTA buttons
+{% endcomment %}
+
+{{ 'section-hero.css' | asset_url | stylesheet_tag }}
+
+<section class="hero" data-hero-slideshow>
+  <!-- Slides -->
+  {% for block in section.blocks %}
+    <div
+      class="hero__slide"
+      data-slide="{{ forloop.index0 }}"
+      aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}"
+      {{ block.shopify_attributes }}
+    >
+      <!-- Background Image -->
+      <div class="hero__image-wrap">
+        {% if block.settings.image %}
+          <img
+            src="{{ block.settings.image | image_url: width: 1920 }}"
+            alt="{{ block.settings.heading | escape }}"
+            class="hero__image"
+            {% if forloop.first %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
+            width="1920"
+            height="1080"
+          >
+        {% else %}
+          {{ 'lifestyle-1' | placeholder_svg_tag: 'hero__image' }}
+        {% endif %}
+        <div class="hero__overlay-vertical"></div>
+        <div class="hero__overlay-horizontal"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="hero__content">
+        <div class="hero__content-inner">
+          <div class="hero__text-wrap">
+            <div class="hero__accent-line"></div>
+
+            <h1 class="hero__title">{{ block.settings.heading }}</h1>
+
+            <div class="hero__subtitle-line"></div>
+
+            <p class="hero__subtitle">{{ block.settings.subheading }}</p>
+
+            <div class="hero__cta">
+              {% if block.settings.button_label != blank %}
+                <a href="{{ block.settings.button_link }}" class="hero__btn-primary">
+                  {{ block.settings.button_label }}
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                </a>
+              {% endif %}
+
+              {% if block.settings.secondary_label != blank %}
+                <a href="{{ block.settings.secondary_link }}" class="hero__btn-secondary">
+                  {{ block.settings.secondary_label }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+  <!-- Nav Arrows -->
+  <button class="hero__arrow hero__arrow--prev" data-prev aria-label="Previous slide">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="hero__arrow hero__arrow--next" data-next aria-label="Next slide">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+
+  <!-- Bottom fade -->
+  <div class="hero__bottom-fade"></div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Slideshow",
+  "class": "hero-section",
+  "max_blocks": 6,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile Image (optional)"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Timeless Elegance"
+        },
+        {
+          "type": "textarea",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "Heritage-inspired masterpieces crafted with tradition and artistry"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Primary Button Label",
+          "default": "Explore Collections"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Primary Button Link"
+        },
+        {
+          "type": "text",
+          "id": "secondary_label",
+          "label": "Secondary Button Label",
+          "default": "Our Heritage"
+        },
+        {
+          "type": "url",
+          "id": "secondary_link",
+          "label": "Secondary Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Slideshow",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "heading": "Timeless Elegance",
+            "subheading": "Heritage-inspired masterpieces crafted with tradition and artistry",
+            "button_label": "Explore Collections",
+            "secondary_label": "Our Heritage"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "heading": "Royal Heritage",
+            "subheading": "Exquisite pieces that celebrate India's rich cultural legacy",
+            "button_label": "Explore Collections",
+            "secondary_label": "Our Heritage"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "heading": "Artisan Excellence",
+            "subheading": "Every piece handcrafted by master artisans with devotion and precision",
+            "button_label": "Explore Collections",
+            "secondary_label": "Our Heritage"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

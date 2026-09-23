@@ -1,0 +1,49 @@
+{% comment %} Varaha Jewels — Customer Register {% endcomment %}
+
+<section style="padding:3rem 0 6rem;background:var(--warm-sand);min-height:70vh;display:flex;align-items:center;">
+  <div class="container" style="max-width:28rem;">
+    <div style="text-align:center;margin-bottom:2.5rem;">
+      <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" style="height:3rem;margin:0 auto 1.5rem;display:block;" loading="eager">
+      <h1 style="font-family:var(--font-royal);font-size:2.5rem;font-weight:700;color:var(--heritage);margin-bottom:0.5rem;">Join Our Royal Family</h1>
+      <p style="color:rgba(122,59,35,0.6);">Create your account for exclusive access</p>
+    </div>
+
+    <div style="background:white;border-radius:0.75rem;padding:2rem;border:1px solid rgba(163,86,42,0.2);box-shadow:var(--shadow-md);">
+      {% form 'create_customer' %}
+        {{ form.errors | default_errors }}
+
+        <div style="margin-bottom:1.25rem;">
+          <label for="FirstName" style="display:block;font-weight:500;color:var(--heritage);margin-bottom:0.5rem;font-size:0.875rem;">First Name</label>
+          <input type="text" name="customer[first_name]" id="FirstName" autocomplete="given-name"
+            style="width:100%;padding:0.75rem 1rem;border:2px solid rgba(163,86,42,0.3);border-radius:0.5rem;background:white;color:var(--heritage);font-size:0.9375rem;outline:none;">
+        </div>
+
+        <div style="margin-bottom:1.25rem;">
+          <label for="LastName" style="display:block;font-weight:500;color:var(--heritage);margin-bottom:0.5rem;font-size:0.875rem;">Last Name</label>
+          <input type="text" name="customer[last_name]" id="LastName" autocomplete="family-name"
+            style="width:100%;padding:0.75rem 1rem;border:2px solid rgba(163,86,42,0.3);border-radius:0.5rem;background:white;color:var(--heritage);font-size:0.9375rem;outline:none;">
+        </div>
+
+        <div style="margin-bottom:1.25rem;">
+          <label for="Email" style="display:block;font-weight:500;color:var(--heritage);margin-bottom:0.5rem;font-size:0.875rem;">Email</label>
+          <input type="email" name="customer[email]" id="Email" autocomplete="email" autocapitalize="off"
+            style="width:100%;padding:0.75rem 1rem;border:2px solid rgba(163,86,42,0.3);border-radius:0.5rem;background:white;color:var(--heritage);font-size:0.9375rem;outline:none;"
+            placeholder="you@example.com">
+        </div>
+
+        <div style="margin-bottom:1.5rem;">
+          <label for="CreatePassword" style="display:block;font-weight:500;color:var(--heritage);margin-bottom:0.5rem;font-size:0.875rem;">Password</label>
+          <input type="password" name="customer[password]" id="CreatePassword"
+            style="width:100%;padding:0.75rem 1rem;border:2px solid rgba(163,86,42,0.3);border-radius:0.5rem;background:white;color:var(--heritage);font-size:0.9375rem;outline:none;"
+            placeholder="Min 5 characters">
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;padding:0.875rem;font-size:1rem;font-weight:600;border-radius:0.5rem;">Create Account</button>
+
+        <div style="text-align:center;margin-top:1.5rem;">
+          <a href="/account/login" style="color:var(--copper);font-size:0.875rem;text-decoration:none;font-weight:500;">Already have an account? Sign in →</a>
+        </div>
+      {% endform %}
+    </div>
+  </div>
+</section>

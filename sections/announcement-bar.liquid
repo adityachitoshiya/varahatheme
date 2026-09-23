@@ -1,0 +1,80 @@
+{% comment %}
+  Varaha Jewels — Announcement Bar
+  Rotates through configurable messages
+{% endcomment %}
+
+{% if section.blocks.size > 0 %}
+<div class="announcement-bar" data-announcement-bar style="position:relative;z-index:50;background:linear-gradient(to right,var(--heritage),var(--copper),var(--heritage));color:var(--warm-sand);padding:0.5rem;border-bottom:1px solid rgba(244,230,216,0.2);box-shadow:var(--shadow-sm);">
+  <div style="max-width:80rem;margin:0 auto;display:flex;align-items:center;justify-content:center;position:relative;">
+
+    {% if section.blocks.size > 1 %}
+      <button data-announcement-prev aria-label="Previous" style="position:absolute;left:0;padding:0.25rem;background:none;border:none;cursor:pointer;color:rgba(244,230,216,0.7);border-radius:50%;transition:background 0.2s;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+    {% endif %}
+
+    <div style="overflow:hidden;max-width:85%;position:relative;min-height:1.25rem;">
+      {% for block in section.blocks %}
+        <p
+          data-announcement-item
+          style="font-size:10px;text-align:center;font-weight:500;white-space:nowrap;transition:opacity 0.5s;{% if forloop.first %}opacity:1;position:relative;{% else %}opacity:0;position:absolute;top:0;left:0;right:0;{% endif %}"
+          {{ block.shopify_attributes }}
+        >
+          {{ block.settings.text }}
+        </p>
+      {% endfor %}
+    </div>
+
+    {% if section.blocks.size > 1 %}
+      <button data-announcement-next aria-label="Next" style="position:absolute;right:1.5rem;padding:0.25rem;background:none;border:none;cursor:pointer;color:rgba(244,230,216,0.7);border-radius:50%;transition:background 0.2s;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    {% endif %}
+
+    <button data-announcement-dismiss aria-label="Dismiss" style="position:absolute;right:0;padding:0.25rem;background:none;border:none;cursor:pointer;color:rgba(244,230,216,0.7);border-radius:50%;transition:background 0.2s;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "class": "announcement-bar-section",
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "Announcement",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Announcement Text",
+          "default": "✨ Free Shipping on orders above ₹5000 | Use code VARAHA10 for 10% off"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Bar",
+      "blocks": [
+        {
+          "type": "announcement",
+          "settings": {
+            "text": "✨ Free Shipping on orders above ₹5000 | Use code VARAHA10 for 10% off"
+          }
+        },
+        {
+          "type": "announcement",
+          "settings": {
+            "text": "🎁 New Collection Launch — Heritage Series Now Available"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

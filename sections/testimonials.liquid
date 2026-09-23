@@ -1,0 +1,200 @@
+{% comment %}
+  Varaha Jewels — Testimonials Section
+  3-column testimonials with trust badges
+{% endcomment %}
+
+{{ 'section-testimonials.css' | asset_url | stylesheet_tag }}
+
+<section class="testimonials">
+  <div class="container">
+    <!-- Header -->
+    <div class="testimonials__header scroll-animate">
+      <div class="testimonials__line"></div>
+      <h2 class="testimonials__title">{{ section.settings.heading }}</h2>
+      <p class="testimonials__subtitle">{{ section.settings.subheading }}</p>
+    </div>
+
+    <!-- Grid -->
+    <div class="testimonials__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'testimonial' %}
+          <div
+            class="testimonial-card scroll-animate"
+            style="transition-delay: {{ forloop.index0 | times: 150 }}ms;"
+            {{ block.shopify_attributes }}
+          >
+            <!-- Quote Icon -->
+            <svg class="testimonial-card__quote" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+
+            <div style="position:relative;z-index:10;">
+              <!-- Stars -->
+              <div class="testimonial-card__stars">
+                {% assign rating = block.settings.rating | default: 5 %}
+                {% for i in (1..rating) %}
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                {% endfor %}
+              </div>
+
+              <!-- Text -->
+              <p class="testimonial-card__text">"{{ block.settings.text }}"</p>
+
+              <div class="testimonial-card__sep"></div>
+
+              <!-- Author -->
+              <div class="testimonial-card__author">
+                {% if block.settings.avatar %}
+                  <img
+                    src="{{ block.settings.avatar | image_url: width: 112 }}"
+                    alt="{{ block.settings.name | escape }}"
+                    class="testimonial-card__avatar"
+                    loading="lazy"
+                    width="56"
+                    height="56"
+                  >
+                {% else %}
+                  <div class="testimonial-card__avatar" style="background:rgba(163,86,42,0.1);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--copper);font-size:1.25rem;">
+                    {{ block.settings.name | slice: 0 | upcase }}
+                  </div>
+                {% endif %}
+
+                <div style="flex:1;">
+                  <p class="testimonial-card__name">{{ block.settings.name }}</p>
+                  <p class="testimonial-card__location">{{ block.settings.location }}</p>
+                  {% if block.settings.verified %}
+                    <div class="testimonial-card__verified">
+                      <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                      <span class="testimonial-card__verified-text">Verified Purchase</span>
+                      <span class="testimonial-card__verified-platform">• via {{ block.settings.platform | default: 'Amazon' }}</span>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <!-- Trust Badges -->
+    {% if section.settings.show_trust_badges %}
+      <div class="testimonials__trust">
+        <div class="testimonials__trust-grid">
+          <div class="trust-badge animate-float" style="animation-delay:0s;">
+            <div class="trust-badge__icon">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" style="color:var(--copper);"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <p class="trust-badge__value">4.9/5</p>
+            <p class="trust-badge__label">Customer Rating</p>
+          </div>
+          <div class="trust-badge animate-float" style="animation-delay:0.5s;">
+            <div class="trust-badge__icon">
+              <span>BIS</span>
+            </div>
+            <p class="trust-badge__label">Hallmark Certified</p>
+          </div>
+          <div class="trust-badge animate-float" style="animation-delay:1s;">
+            <div class="trust-badge__icon">
+              <span>✓</span>
+            </div>
+            <p class="trust-badge__label">Lifetime Warranty*</p>
+          </div>
+          <div class="trust-badge animate-float" style="animation-delay:1.5s;">
+            <div class="trust-badge__icon">
+              <span>30</span>
+            </div>
+            <p class="trust-badge__label">Day Returns*</p>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "class": "testimonials-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Cherished by Thousands"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Hear from our valued patrons about their Varaha Jewels experience"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_badges",
+      "label": "Show Trust Badges",
+      "default": true
+    }
+  ],
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Customer Name",
+          "default": "Priya Sharma"
+        },
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Location",
+          "default": "Mumbai"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Testimonial Text",
+          "default": "The craftsmanship is absolutely exquisite. I purchased a bridal set for my wedding, and it became the centerpiece of my entire ensemble."
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "default": 5
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Avatar Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Verified Purchase",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "platform",
+          "label": "Purchase Platform",
+          "default": "Amazon"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        { "type": "testimonial", "settings": { "name": "Priya Sharma", "location": "Mumbai", "text": "The craftsmanship is absolutely exquisite. I purchased a bridal set for my wedding, and it became the centerpiece of my entire ensemble. The attention to detail is remarkable.", "platform": "Amazon" } },
+        { "type": "testimonial", "settings": { "name": "Anjali Reddy", "location": "Hyderabad", "text": "Varaha Jewels perfectly blends traditional artistry with contemporary elegance. Each piece feels like wearing a piece of heritage. Truly exceptional quality.", "platform": "Flipkart" } },
+        { "type": "testimonial", "settings": { "name": "Kavita Mehta", "location": "Delhi", "text": "I have been a loyal customer for over a decade. The timeless designs and impeccable service keep me coming back. These are heirlooms I will pass to my daughters.", "platform": "Amazon" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

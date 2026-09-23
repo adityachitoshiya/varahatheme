@@ -1,0 +1,161 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Varaha Jewels Heritage",
+    "theme_version": "1.0.0",
+    "theme_author": "Varaha Jewels",
+    "theme_documentation_url": "https://www.varahajewels.in",
+    "theme_support_url": "mailto:help@varahajewels.in"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Primary Colors"
+      },
+      {
+        "type": "color",
+        "id": "color_royal_orange",
+        "label": "Royal Orange",
+        "default": "#E07A24"
+      },
+      {
+        "type": "color",
+        "id": "color_copper",
+        "label": "Copper",
+        "default": "#A3562A"
+      },
+      {
+        "type": "color",
+        "id": "color_heritage",
+        "label": "Heritage Brown",
+        "default": "#7A3B23"
+      },
+      {
+        "type": "color",
+        "id": "color_matte_brown",
+        "label": "Matte Brown",
+        "default": "#B46D3C"
+      },
+      {
+        "type": "color",
+        "id": "color_warm_sand",
+        "label": "Warm Sand (Background)",
+        "default": "#F4E6D8"
+      },
+      {
+        "type": "color",
+        "id": "color_ivory_smoke",
+        "label": "Ivory Smoke",
+        "default": "#EFE9E2"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading Font",
+        "default": "cormorant_garamond_n6"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_subheading",
+        "label": "Subheading Font",
+        "default": "playfair_display_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body Font",
+        "default": "inter_n4"
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram URL",
+        "default": "https://www.instagram.com/varahajewels"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook",
+        "label": "Facebook URL",
+        "default": "https://www.facebook.com/varahajewels"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter",
+        "label": "Twitter URL",
+        "default": "https://twitter.com/varahajewels"
+      }
+    ]
+  },
+  {
+    "name": "Contact Info",
+    "settings": [
+      {
+        "type": "text",
+        "id": "contact_phone",
+        "label": "Phone Number",
+        "default": "+91 98765 43210"
+      },
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Email Address",
+        "default": "hello@varahajewels.com"
+      },
+      {
+        "type": "text",
+        "id": "contact_address",
+        "label": "Address",
+        "default": "Jaipur, Rajasthan, India"
+      }
+    ]
+  },
+  {
+    "name": "Metal Rates",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Live Metal Rates (Footer)"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_metal_rates",
+        "label": "Show metal rates in footer",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "gold_rate",
+        "label": "Gold Rate (24K per 10g)",
+        "default": "124040"
+      },
+      {
+        "type": "text",
+        "id": "silver_rate",
+        "label": "Silver Rate (999 per 1kg)",
+        "default": "208900"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  }
+]

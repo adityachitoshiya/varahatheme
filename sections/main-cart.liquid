@@ -1,0 +1,82 @@
+{% comment %}
+  Varaha Jewels — Cart Page
+{% endcomment %}
+
+<section style="padding:3rem 0 6rem;background:var(--warm-sand);min-height:80vh;">
+  <div class="container" style="max-width:56rem;">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div style="width:4rem;height:1px;background:var(--copper);margin:0 auto 1.5rem;"></div>
+      <h1 style="font-family:var(--font-royal);font-size:clamp(2.5rem,6vw,3.75rem);font-weight:700;color:var(--heritage);">Your Cart</h1>
+    </div>
+
+    {% if cart.item_count > 0 %}
+      <form action="/cart" method="post" novalidate>
+        {% for item in cart.items %}
+          <div style="display:flex;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid rgba(163,86,42,0.15);align-items:center;">
+            <!-- Image -->
+            <a href="{{ item.url }}" style="flex-shrink:0;">
+              {% if item.image %}
+                <img src="{{ item.image | image_url: width: 200 }}" alt="{{ item.title | escape }}" style="width:6rem;height:6rem;object-fit:cover;border-radius:0.5rem;border:1px solid rgba(163,86,42,0.2);" loading="lazy" width="96" height="96">
+              {% endif %}
+            </a>
+
+            <!-- Info -->
+            <div style="flex:1;min-width:0;">
+              <a href="{{ item.url }}" style="text-decoration:none;">
+                <h3 style="font-family:var(--font-royal);font-size:1.25rem;font-weight:600;color:var(--heritage);margin-bottom:0.25rem;">{{ item.product.title }}</h3>
+              </a>
+              {% unless item.product.has_only_default_variant %}
+                <p style="font-size:0.875rem;color:rgba(122,59,35,0.6);">{{ item.variant.title }}</p>
+              {% endunless %}
+              <p style="color:var(--copper);font-weight:500;margin-top:0.5rem;">{{ item.final_line_price | money }}</p>
+            </div>
+
+            <!-- Quantity -->
+            <div style="display:flex;align-items:center;gap:0.5rem;border:1px solid rgba(163,86,42,0.3);border-radius:0.5rem;overflow:hidden;">
+              <a href="/cart/change?line={{ forloop.index }}&quantity={{ item.quantity | minus: 1 }}" style="padding:0.5rem 0.75rem;color:var(--heritage);text-decoration:none;font-size:1.125rem;">−</a>
+              <span style="padding:0.5rem;min-width:2rem;text-align:center;font-weight:500;color:var(--heritage);">{{ item.quantity }}</span>
+              <a href="/cart/change?line={{ forloop.index }}&quantity={{ item.quantity | plus: 1 }}" style="padding:0.5rem 0.75rem;color:var(--heritage);text-decoration:none;font-size:1.125rem;">+</a>
+            </div>
+
+            <!-- Remove -->
+            <a href="/cart/change?line={{ forloop.index }}&quantity=0" style="color:rgba(122,59,35,0.4);transition:color 0.2s;" aria-label="Remove {{ item.title }}">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            </a>
+          </div>
+        {% endfor %}
+
+        <!-- Cart Summary -->
+        <div style="margin-top:2rem;padding:2rem;background:white;border-radius:0.75rem;border:1px solid rgba(163,86,42,0.2);">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1.5rem;">
+            <span style="font-family:var(--font-royal);font-size:1.5rem;font-weight:600;color:var(--heritage);">Subtotal</span>
+            <span style="font-size:1.5rem;font-weight:300;color:var(--copper);">{{ cart.total_price | money }}</span>
+          </div>
+
+          <p style="font-size:0.875rem;color:rgba(122,59,35,0.6);margin-bottom:1.5rem;">Taxes and shipping calculated at checkout</p>
+
+          <button type="submit" name="checkout" class="btn btn-primary" style="width:100%;padding:1rem;font-size:1rem;font-weight:600;border-radius:0.5rem;box-shadow:0 10px 20px rgba(163,86,42,0.2);">
+            Checkout — {{ cart.total_price | money }}
+          </button>
+
+          <a href="/collections/all" style="display:block;text-align:center;margin-top:1rem;color:var(--copper);font-size:0.875rem;font-weight:500;text-decoration:none;">
+            ← Continue Shopping
+          </a>
+        </div>
+      </form>
+    {% else %}
+      <div style="text-align:center;padding:4rem 0;">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="rgba(163,86,42,0.3)" stroke-width="1.5" style="margin:0 auto 1.5rem;display:block;"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <h2 style="font-family:var(--font-royal);font-size:2rem;color:var(--heritage);margin-bottom:1rem;">Your cart is empty</h2>
+        <p style="color:rgba(122,59,35,0.6);margin-bottom:2rem;">Discover our exquisite heritage jewelry collection</p>
+        <a href="/collections/all" class="btn btn-primary" style="padding:1rem 2.5rem;">Explore Collections</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cart Page",
+  "settings": []
+}
+{% endschema %}

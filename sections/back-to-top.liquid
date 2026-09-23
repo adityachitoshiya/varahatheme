@@ -1,0 +1,52 @@
+{% comment %}
+  Varaha Jewels — Back to Top Button
+{% endcomment %}
+
+<button
+  data-back-to-top
+  aria-label="Back to top"
+  style="
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 50;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: var(--copper);
+    color: var(--warm-sand);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(163, 86, 42, 0.3);
+    opacity: 0;
+    transform: translateY(1rem);
+    transition: opacity 0.3s, transform 0.3s, background 0.3s;
+    pointer-events: none;
+  "
+>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <path d="M18 15l-6-6-6 6"/>
+  </svg>
+</button>
+
+<style>
+  [data-back-to-top].visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+  [data-back-to-top]:hover {
+    background: var(--heritage) !important;
+    transform: translateY(-2px) !important;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Back to Top",
+  "settings": []
+}
+{% endschema %}

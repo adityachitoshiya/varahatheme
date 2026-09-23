@@ -1,0 +1,221 @@
+/* =============================================
+   VARAHA JEWELS — Hero Slideshow CSS
+   ============================================= */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background-color: var(--warm-sand);
+  overflow: hidden;
+}
+
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  height: 100vh;
+  transition: opacity 1s ease;
+  opacity: 0;
+}
+
+.hero__slide[aria-hidden="false"] {
+  opacity: 1;
+}
+
+.hero__image-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Warm overlay gradients */
+.hero__overlay-vertical {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(244, 230, 216, 0.7),
+    rgba(244, 230, 216, 0.5),
+    rgba(244, 230, 216, 0.7)
+  );
+}
+
+.hero__overlay-horizontal {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right,
+    rgba(244, 230, 216, 0.6),
+    transparent,
+    rgba(244, 230, 216, 0.6)
+  );
+}
+
+/* Content */
+.hero__content {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__content-inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.hero__text-wrap {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.hero__accent-line {
+  width: 6rem;
+  height: 1px;
+  background: var(--copper);
+  margin: 0 auto 2rem;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.hero__title {
+  font-family: var(--font-royal);
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  font-weight: 700;
+  color: var(--heritage);
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  animation: fadeUp 0.8s ease-out forwards;
+}
+
+.hero__subtitle-line {
+  width: 8rem;
+  height: 1px;
+  background: rgba(163, 86, 42, 0.6);
+  margin: 0 auto 2.5rem;
+  animation: fadeIn 1s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+.hero__subtitle {
+  font-family: var(--font-playfair);
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
+  color: rgba(122, 59, 35, 0.8);
+  margin-bottom: 4rem;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  font-weight: 300;
+  letter-spacing: 0.025em;
+  animation: fadeUp 0.8s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+/* CTA Buttons */
+.hero__cta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  animation: scaleIn 0.6s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+@media (min-width: 640px) {
+  .hero__cta {
+    flex-direction: row;
+  }
+}
+
+.hero__btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.5rem;
+  background: var(--copper);
+  border: 1px solid var(--copper);
+  color: var(--warm-sand);
+  font-weight: 500;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  font-size: 0.9375rem;
+}
+
+.hero__btn-primary:hover {
+  background: var(--heritage);
+}
+
+.hero__btn-primary svg {
+  transition: transform var(--transition-base);
+}
+
+.hero__btn-primary:hover svg {
+  transform: translateX(0.5rem);
+}
+
+.hero__btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  background: transparent;
+  border: 1px solid var(--copper);
+  color: var(--heritage);
+  font-weight: 500;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  font-size: 0.9375rem;
+}
+
+.hero__btn-secondary:hover {
+  background: rgba(163, 86, 42, 0.05);
+}
+
+/* Navigation Arrows */
+.hero__arrow {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--heritage);
+  border: 1px solid rgba(163, 86, 42, 0.4);
+  border-radius: 2px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: all var(--transition-base);
+}
+
+@media (min-width: 768px) {
+  .hero__arrow { display: block; }
+}
+
+.hero__arrow:hover {
+  background: var(--copper);
+  color: var(--warm-sand);
+}
+
+.hero__arrow--prev { left: 1.5rem; }
+.hero__arrow--next { right: 1.5rem; }
+
+/* Bottom gradient */
+.hero__bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 8rem;
+  background: linear-gradient(to top, var(--warm-sand), transparent);
+  z-index: 5;
+}

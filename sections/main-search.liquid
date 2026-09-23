@@ -1,0 +1,56 @@
+{% comment %} Varaha Jewels — Search Results {% endcomment %}
+
+<section style="padding:3rem 0 6rem;background:var(--warm-sand);min-height:60vh;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div style="width:4rem;height:1px;background:var(--copper);margin:0 auto 1.5rem;"></div>
+      <h1 style="font-family:var(--font-royal);font-size:clamp(2rem,5vw,3rem);font-weight:700;color:var(--heritage);margin-bottom:1rem;">Search Results</h1>
+      <form action="/search" method="get" style="max-width:32rem;margin:0 auto;">
+        <input type="text" name="q" value="{{ search.terms | escape }}" placeholder="Search for jewelry..." style="width:100%;padding:0.875rem 1rem;border:2px solid rgba(163,86,42,0.3);border-radius:0.5rem;background:white;color:var(--heritage);font-size:1rem;outline:none;">
+      </form>
+    </div>
+
+    {% if search.performed %}
+      {% if search.results_count > 0 %}
+        <p style="text-align:center;color:rgba(122,59,35,0.6);margin-bottom:2rem;">{{ search.results_count }} results for "{{ search.terms }}"</p>
+        <div class="search-results-grid">
+          {% for item in search.results %}
+            <a href="{{ item.url }}" class="collection-card" style="border-radius:0.5rem;">
+              {% if item.featured_image %}
+                <div class="collection-card__image-wrap" style="height:14rem;">
+                  <img src="{{ item.featured_image | image_url: width: 480 }}" alt="{{ item.title | escape }}" class="collection-card__image" loading="lazy">
+                </div>
+              {% endif %}
+              <div class="collection-card__body" style="padding:1.25rem;">
+                <h3 class="collection-card__name" style="font-size:1rem;margin-bottom:0.25rem;">{{ item.title }}</h3>
+                {% if item.price %}
+                  <p style="color:var(--copper);font-weight:500;">{{ item.price | money }}</p>
+                {% endif %}
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div style="text-align:center;padding:3rem 0;">
+          <p style="color:rgba(122,59,35,0.6);font-size:1.125rem;margin-bottom:1.5rem;">No results found for "{{ search.terms }}"</p>
+          <a href="/collections/all" class="btn btn-primary">Browse All Collections</a>
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .search-results-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+</style>
+
+{% schema %}
+{ "name": "Search Results", "settings": [] }
+{% endschema %}

@@ -1,0 +1,31 @@
+{% comment %} Varaha Jewels — Order Detail {% endcomment %}
+
+<section style="padding:3rem 0 6rem;background:var(--warm-sand);min-height:60vh;">
+  <div class="container" style="max-width:48rem;">
+    <a href="/account" style="color:var(--copper);font-size:0.875rem;text-decoration:none;display:inline-flex;align-items:center;gap:0.25rem;margin-bottom:1.5rem;">← Back to Account</a>
+
+    <h1 style="font-family:var(--font-royal);font-size:2.5rem;font-weight:700;color:var(--heritage);margin-bottom:0.5rem;">{{ order.name }}</h1>
+    <p style="color:rgba(122,59,35,0.5);margin-bottom:2rem;">Placed on {{ order.created_at | date: '%B %d, %Y at %I:%M %p' }}</p>
+
+    <div style="background:white;border-radius:0.75rem;padding:2rem;border:1px solid rgba(163,86,42,0.2);margin-bottom:2rem;">
+      {% for line_item in order.line_items %}
+        <div style="display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(163,86,42,0.1);align-items:center;">
+          {% if line_item.image %}
+            <img src="{{ line_item.image | image_url: width: 160 }}" alt="{{ line_item.title | escape }}" style="width:5rem;height:5rem;object-fit:cover;border-radius:0.5rem;" loading="lazy">
+          {% endif %}
+          <div style="flex:1;">
+            <p style="font-weight:500;color:var(--heritage);">{{ line_item.title }}</p>
+            <p style="font-size:0.875rem;color:rgba(122,59,35,0.5);">Qty: {{ line_item.quantity }}</p>
+          </div>
+          <p style="color:var(--copper);font-weight:500;">{{ line_item.final_line_price | money }}</p>
+        </div>
+      {% endfor %}
+
+      <div style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(163,86,42,0.2);">
+        <div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;"><span style="color:rgba(122,59,35,0.6);">Subtotal</span><span>{{ order.line_items_subtotal_price | money }}</span></div>
+        {% for shipping_method in order.shipping_methods %}<div style="display:flex;justify-content:space-between;margin-bottom:0.5rem;"><span style="color:rgba(122,59,35,0.6);">Shipping</span><span>{{ shipping_method.price | money }}</span></div>{% endfor %}
+        <div style="display:flex;justify-content:space-between;font-size:1.25rem;font-weight:600;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(163,86,42,0.2);"><span style="color:var(--heritage);">Total</span><span style="color:var(--copper);">{{ order.total_price | money }}</span></div>
+      </div>
+    </div>
+  </div>
+</section>

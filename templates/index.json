@@ -1,0 +1,103 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-slideshow",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "heading": "Timeless Elegance",
+            "subheading": "Heritage-inspired masterpieces crafted with tradition and artistry",
+            "button_label": "Explore Collections",
+            "button_link": "/collections/all",
+            "secondary_label": "Our Heritage",
+            "secondary_link": "/pages/heritage"
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "heading": "Royal Heritage",
+            "subheading": "Exquisite pieces that celebrate India's rich cultural legacy",
+            "button_label": "Explore Collections",
+            "button_link": "/collections/all",
+            "secondary_label": "Our Heritage",
+            "secondary_link": "/pages/heritage"
+          }
+        },
+        "slide_3": {
+          "type": "slide",
+          "settings": {
+            "heading": "Artisan Excellence",
+            "subheading": "Every piece handcrafted by master artisans with devotion and precision",
+            "button_label": "Explore Collections",
+            "button_link": "/collections/all",
+            "secondary_label": "Our Heritage",
+            "secondary_link": "/pages/heritage"
+          }
+        }
+      },
+      "block_order": ["slide_1", "slide_2", "slide_3"]
+    },
+    "featured_collections": {
+      "type": "featured-collections",
+      "settings": {
+        "heading": "Our Collections",
+        "subheading": "Discover exquisite pieces that blend heritage with contemporary elegance"
+      },
+      "blocks": {
+        "col_1": { "type": "collection_card", "settings": { "title": "Heritage Collection", "description": "Timeless pieces inspired by royal traditions" } },
+        "col_2": { "type": "collection_card", "settings": { "title": "Bridal Elegance", "description": "Exquisite adornments for your special day" } },
+        "col_3": { "type": "collection_card", "settings": { "title": "Contemporary Classics", "description": "Modern designs with traditional soul" } },
+        "col_4": { "type": "collection_card", "settings": { "title": "Temple Treasures", "description": "Sacred artistry in every detail" } }
+      },
+      "block_order": ["col_1", "col_2", "col_3", "col_4"]
+    },
+    "product_spotlight": {
+      "type": "product-spotlight",
+      "settings": {
+        "badge_text": "Exquisite Collection",
+        "heading": "Featured Masterpieces"
+      },
+      "blocks": {
+        "item_1": { "type": "product_item", "settings": { "title": "Heritage Kundan Necklace", "price": "₹24,999", "tag": "Bestseller", "description": "Experience the timeless elegance of our handcrafted masterpiece, designed to illuminate your grace." } },
+        "item_2": { "type": "product_item", "settings": { "title": "Royal Temple Set", "price": "₹32,999", "tag": "Premium", "description": "A stunning set inspired by ancient temple architecture and divine artistry." } }
+      },
+      "block_order": ["item_1", "item_2"]
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "settings": {
+        "heading": "Cherished by Thousands",
+        "subheading": "Hear from our valued patrons about their Varaha Jewels experience",
+        "show_trust_badges": true
+      },
+      "blocks": {
+        "t1": { "type": "testimonial", "settings": { "name": "Priya Sharma", "location": "Mumbai", "text": "The craftsmanship is absolutely exquisite. I purchased a bridal set for my wedding, and it became the centerpiece of my entire ensemble. The attention to detail is remarkable.", "platform": "Amazon" } },
+        "t2": { "type": "testimonial", "settings": { "name": "Anjali Reddy", "location": "Hyderabad", "text": "Varaha Jewels perfectly blends traditional artistry with contemporary elegance. Each piece feels like wearing a piece of heritage. Truly exceptional quality.", "platform": "Flipkart" } },
+        "t3": { "type": "testimonial", "settings": { "name": "Kavita Mehta", "location": "Delhi", "text": "I have been a loyal customer for over a decade. The timeless designs and impeccable service keep me coming back. These are heirlooms I will pass to my daughters.", "platform": "Amazon" } }
+      },
+      "block_order": ["t1", "t2", "t3"]
+    },
+    "creator_showcase": {
+      "type": "creator-showcase",
+      "settings": {
+        "heading": "Loved by Influencers",
+        "subheading": "See how top fashion creators style our exquisite jewelry collections"
+      },
+      "blocks": {
+        "c1": { "type": "creator", "settings": { "name": "Priya Sharma", "handle": "@priyastyle", "platform": "instagram", "followers": "2.5M", "product_name": "Heritage Kundan Necklace" } },
+        "c2": { "type": "creator", "settings": { "name": "Nisha Kapoor", "handle": "@nishafashion", "platform": "youtube", "followers": "1.8M", "product_name": "Traditional Jhumka Earrings" } },
+        "c3": { "type": "creator", "settings": { "name": "Anjali Mehta", "handle": "@anjalijewels", "platform": "instagram", "followers": "3.2M", "product_name": "Polki Diamond Bangles" } }
+      },
+      "block_order": ["c1", "c2", "c3"]
+    }
+  },
+  "order": [
+    "hero",
+    "featured_collections",
+    "product_spotlight",
+    "testimonials",
+    "creator_showcase"
+  ]
+}

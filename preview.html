@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Varaha Jewels — Preview</title>
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="stylesheet" href="assets/base.css">
+  <link rel="stylesheet" href="assets/component-header.css">
+  <link rel="stylesheet" href="assets/component-footer.css">
+  <link rel="stylesheet" href="assets/section-hero.css">
+  <link rel="stylesheet" href="assets/section-featured-collections.css">
+  <link rel="stylesheet" href="assets/section-product-spotlight.css">
+  <link rel="stylesheet" href="assets/section-testimonials.css">
+  <link rel="stylesheet" href="assets/section-creator-showcase.css">
+</head>
+<body>
+
+<!-- ============================================= -->
+<!-- ANNOUNCEMENT BAR -->
+<!-- ============================================= -->
+<div class="announcement-bar" data-announcement-bar style="position:relative;z-index:50;background:linear-gradient(to right,var(--heritage),var(--copper),var(--heritage));color:var(--warm-sand);padding:0.5rem;border-bottom:1px solid rgba(244,230,216,0.2);box-shadow:var(--shadow-sm);">
+  <div style="max-width:80rem;margin:0 auto;display:flex;align-items:center;justify-content:center;position:relative;">
+    <button data-announcement-prev aria-label="Previous" style="position:absolute;left:0;padding:0.25rem;background:none;border:none;cursor:pointer;color:rgba(244,230,216,0.7);border-radius:50%;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div style="overflow:hidden;max-width:85%;position:relative;min-height:1.25rem;">
+      <p data-announcement-item style="font-size:10px;text-align:center;font-weight:500;white-space:nowrap;transition:opacity 0.5s;opacity:1;position:relative;">
+        ✨ Free Shipping on orders above ₹5000 | Use code VARAHA10 for 10% off
+      </p>
+      <p data-announcement-item style="font-size:10px;text-align:center;font-weight:500;white-space:nowrap;transition:opacity 0.5s;opacity:0;position:absolute;top:0;left:0;right:0;">
+        🎁 New Collection Launch — Heritage Series Now Available
+      </p>
+      <p data-announcement-item style="font-size:10px;text-align:center;font-weight:500;white-space:nowrap;transition:opacity 0.5s;opacity:0;position:absolute;top:0;left:0;right:0;">
+        💎 BIS Hallmark Certified | 100% Authentic Jewelry
+      </p>
+    </div>
+    <button data-announcement-next aria-label="Next" style="position:absolute;right:1.5rem;padding:0.25rem;background:none;border:none;cursor:pointer;color:rgba(244,230,216,0.7);border-radius:50%;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+    <button data-announcement-dismiss aria-label="Dismiss" style="position:absolute;right:0;padding:0.25rem;background:none;border:none;cursor:pointer;color:rgba(244,230,216,0.7);border-radius:50%;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ============================================= -->
+<!-- HEADER -->
+<!-- ============================================= -->
+<header class="header" data-header>
+  <div class="header__inner">
+    <a href="#" class="header__logo">
+      <img src="assets/logo.png" alt="Varaha Jewels" class="header__logo-img" width="160" height="50">
+      <span class="header__logo-tagline">Where heritage meets royalty</span>
+    </a>
+
+    <nav class="header__nav" aria-label="Main navigation">
+      <div class="header__mega-menu">
+        <button class="header__nav-link" style="display:flex;align-items:center;gap:0.25rem;background:none;border:none;cursor:pointer;font-size:inherit;">
+          Collections
+          <svg class="header__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="header__mega-dropdown">
+          <div class="header__mega-dropdown-inner">
+            <div class="header__mega-grid">
+              <div>
+                <h3 class="header__mega-title">Women</h3>
+                <p class="header__mega-label">Shop by Category</p>
+                <a href="#" class="header__mega-link">Necklaces</a>
+                <a href="#" class="header__mega-link">Earrings</a>
+                <a href="#" class="header__mega-link">Rings</a>
+                <a href="#" class="header__mega-link">Bangles & Bracelets</a>
+                <a href="#" class="header__mega-link">Mangalsutra</a>
+                <div style="margin-top:1rem;">
+                  <p class="header__mega-label">Shop by Look</p>
+                  <a href="#" class="header__mega-link">Bridal</a>
+                  <a href="#" class="header__mega-link">Minimal</a>
+                </div>
+                <a href="#" class="header__mega-viewall">View All Women's →</a>
+              </div>
+              <div>
+                <h3 class="header__mega-title">Men</h3>
+                <a href="#" class="header__mega-link">Necklaces & Chains</a>
+                <a href="#" class="header__mega-link">Rings</a>
+                <a href="#" class="header__mega-link">Bracelets</a>
+                <a href="#" class="header__mega-viewall">View All Men's →</a>
+              </div>
+            </div>
+            <div class="header__mega-footer"><a href="#">Browse All Collections →</a></div>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="header__nav-link header__nav-link--ciplx"><span>Ciplx</span><small>by varaha heaths</small></a>
+      <a href="#" class="header__nav-link">Heritage</a>
+      <a href="#" class="header__nav-link">New Arrivals</a>
+      <a href="#" class="header__nav-link">Contact</a>
+    </nav>
+
+    <div class="header__actions">
+      <button class="header__action-btn header__desktop-only" data-search-toggle aria-label="Search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+      <a href="#" class="header__action-btn header__desktop-only" aria-label="Wishlist" style="position:relative;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span class="header__badge header__badge--wishlist">3</span>
+      </a>
+      <button class="header__action-btn header__cart-btn" aria-label="Cart" style="position:relative;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="header__badge">2</span>
+      </button>
+      <a href="#" class="header__action-btn header__desktop-only" aria-label="Account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <button class="header__action-btn header__menu-toggle" data-mobile-menu-toggle aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="header__search" data-search-bar style="max-width:80rem;margin:0 auto;padding:0 0.75rem;">
+    <div class="header__search-input-wrap">
+      <input type="text" placeholder="Search for jewelry..." class="header__search-input" data-search-input autocomplete="off">
+      <svg class="header__search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <button data-search-close style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:rgba(122,59,35,0.6);">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Backdrop -->
+<div class="mobile-backdrop" data-mobile-backdrop></div>
+<!-- Mobile Menu -->
+<div class="mobile-menu" data-mobile-menu>
+  <div class="mobile-menu__inner">
+    <nav class="mobile-menu__nav">
+      <div class="mobile-menu__search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><input type="text" placeholder="Search for jewelry..." autocomplete="off"></div>
+      <div class="mobile-menu__auth"><a href="#" class="mobile-menu__login-btn">Sign In / Register</a></div>
+      <a href="#" class="mobile-menu__link"><div class="mobile-menu__link-inner"><span>All Collections</span><div class="mobile-menu__dot"></div></div></a>
+      <a href="#" class="mobile-menu__link"><div class="mobile-menu__link-inner"><span>Heritage</span><div class="mobile-menu__dot"></div></div></a>
+      <a href="#" class="mobile-menu__link"><div class="mobile-menu__link-inner"><span>New Arrivals</span><div class="mobile-menu__dot"></div></div></a>
+      <a href="#" class="mobile-menu__link"><div class="mobile-menu__link-inner"><span>Contact</span><div class="mobile-menu__dot"></div></div></a>
+      <div class="mobile-menu__footer"><p>Discover timeless elegance</p></div>
+    </nav>
+  </div>
+</div>
+<div class="header-spacer"></div>
+
+<!-- ============================================= -->
+<!-- HERO SLIDESHOW -->
+<!-- ============================================= -->
+<section class="hero" data-hero-slideshow>
+  <div class="hero__slide" data-slide="0" aria-hidden="false">
+    <div class="hero__image-wrap">
+      <img src="assets/heroimage.avif" alt="Timeless Elegance" class="hero__image" loading="eager">
+      <div class="hero__overlay-vertical"></div>
+      <div class="hero__overlay-horizontal"></div>
+    </div>
+    <div class="hero__content">
+      <div class="hero__content-inner">
+        <div class="hero__text-wrap">
+          <div class="hero__accent-line"></div>
+          <h1 class="hero__title">Timeless Elegance</h1>
+          <div class="hero__subtitle-line"></div>
+          <p class="hero__subtitle">Heritage-inspired masterpieces crafted with tradition and artistry</p>
+          <div class="hero__cta">
+            <a href="#collections" class="hero__btn-primary">
+              Explore Collections
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </a>
+            <a href="#" class="hero__btn-secondary">Our Heritage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__slide" data-slide="1" aria-hidden="true">
+    <div class="hero__image-wrap">
+      <img src="assets/herosection2.jpg" alt="Royal Heritage" class="hero__image" loading="lazy">
+      <div class="hero__overlay-vertical"></div>
+      <div class="hero__overlay-horizontal"></div>
+    </div>
+    <div class="hero__content">
+      <div class="hero__content-inner">
+        <div class="hero__text-wrap">
+          <div class="hero__accent-line"></div>
+          <h1 class="hero__title">Royal Heritage</h1>
+          <div class="hero__subtitle-line"></div>
+          <p class="hero__subtitle">Exquisite pieces that celebrate India's rich cultural legacy</p>
+          <div class="hero__cta">
+            <a href="#collections" class="hero__btn-primary">
+              Explore Collections
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </a>
+            <a href="#" class="hero__btn-secondary">Our Heritage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__slide" data-slide="2" aria-hidden="true">
+    <div class="hero__image-wrap">
+      <img src="assets/Jimage3.webp" alt="Artisan Excellence" class="hero__image" loading="lazy">
+      <div class="hero__overlay-vertical"></div>
+      <div class="hero__overlay-horizontal"></div>
+    </div>
+    <div class="hero__content">
+      <div class="hero__content-inner">
+        <div class="hero__text-wrap">
+          <div class="hero__accent-line"></div>
+          <h1 class="hero__title">Artisan Excellence</h1>
+          <div class="hero__subtitle-line"></div>
+          <p class="hero__subtitle">Every piece handcrafted by master artisans with devotion and precision</p>
+          <div class="hero__cta">
+            <a href="#collections" class="hero__btn-primary">
+              Explore Collections
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </a>
+            <a href="#" class="hero__btn-secondary">Our Heritage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="hero__arrow hero__arrow--prev" data-prev aria-label="Previous slide">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="hero__arrow hero__arrow--next" data-next aria-label="Next slide">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+  <div class="hero__bottom-fade"></div>
+</section>
+
+<!-- ============================================= -->
+<!-- FEATURED COLLECTIONS -->
+<!-- ============================================= -->
+<section class="featured-collections" id="collections">
+  <div class="container">
+    <div class="featured-collections__header scroll-animate">
+      <div class="featured-collections__line"></div>
+      <h2 class="featured-collections__title">Our Collections</h2>
+      <p class="featured-collections__subtitle">Discover exquisite pieces that blend heritage with contemporary elegance</p>
+    </div>
+
+    <div class="featured-collections__grid">
+      <a href="#" class="collection-card scroll-animate" style="transition-delay:0ms;">
+        <div class="collection-card__image-wrap">
+          <img src="assets/heroimage.avif" alt="Heritage Collection" class="collection-card__image" loading="lazy">
+          <div class="collection-card__overlay"></div>
+        </div>
+        <div class="collection-card__body">
+          <h3 class="collection-card__name">Heritage Collection</h3>
+          <p class="collection-card__desc">Timeless pieces inspired by royal traditions</p>
+          <div class="collection-card__cta"><span>Explore</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="#" class="collection-card scroll-animate" style="transition-delay:150ms;">
+        <div class="collection-card__image-wrap">
+          <img src="assets/herosection2.jpg" alt="Bridal Elegance" class="collection-card__image" loading="lazy">
+          <div class="collection-card__overlay"></div>
+        </div>
+        <div class="collection-card__body">
+          <h3 class="collection-card__name">Bridal Elegance</h3>
+          <p class="collection-card__desc">Exquisite adornments for your special day</p>
+          <div class="collection-card__cta"><span>Explore</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="#" class="collection-card scroll-animate" style="transition-delay:300ms;">
+        <div class="collection-card__image-wrap">
+          <img src="assets/Jimage3.webp" alt="Contemporary Classics" class="collection-card__image" loading="lazy">
+          <div class="collection-card__overlay"></div>
+        </div>
+        <div class="collection-card__body">
+          <h3 class="collection-card__name">Contemporary Classics</h3>
+          <p class="collection-card__desc">Modern designs with traditional soul</p>
+          <div class="collection-card__cta"><span>Explore</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+      <a href="#" class="collection-card scroll-animate" style="transition-delay:450ms;">
+        <div class="collection-card__image-wrap">
+          <img src="assets/Jimage2.avif" alt="Temple Treasures" class="collection-card__image" loading="lazy">
+          <div class="collection-card__overlay"></div>
+        </div>
+        <div class="collection-card__body">
+          <h3 class="collection-card__name">Temple Treasures</h3>
+          <p class="collection-card__desc">Sacred artistry in every detail</p>
+          <div class="collection-card__cta"><span>Explore</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- PRODUCT SPOTLIGHT -->
+<!-- ============================================= -->
+<section class="product-spotlight" data-product-spotlight>
+  <div class="product-spotlight__bg">
+    <div class="product-spotlight__bg-circle product-spotlight__bg-circle--copper"></div>
+    <div class="product-spotlight__bg-circle product-spotlight__bg-circle--heritage"></div>
+  </div>
+  <div class="container" style="position:relative;z-index:10;">
+    <div class="product-spotlight__header scroll-animate">
+      <span class="product-spotlight__badge">Exquisite Collection</span>
+      <h2 class="product-spotlight__title">Featured Masterpieces</h2>
+    </div>
+    <div class="product-spotlight__layout scroll-animate" style="transition-delay:200ms;">
+      <div class="product-spotlight__image-wrap">
+        <div class="product-spotlight__image-container">
+          <img src="assets/Jimage3.webp" alt="Heritage Kundan Necklace" class="product-spotlight__image" data-spotlight-image loading="lazy">
+          <div class="product-spotlight__image-overlay"></div>
+          <div class="product-spotlight__tags">
+            <span class="product-spotlight__tag product-spotlight__tag--premium">Premium</span>
+            <span class="product-spotlight__tag product-spotlight__tag--label" data-spotlight-tag>Bestseller</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-spotlight__info">
+        <div class="product-spotlight__card">
+          <div class="product-spotlight__stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <span class="product-spotlight__stars-label">(Bestseller)</span>
+          </div>
+          <h3 class="product-spotlight__name" data-spotlight-name>Heritage Kundan Necklace</h3>
+          <p class="product-spotlight__desc line-clamp-3" data-spotlight-desc>Experience the timeless elegance of our handcrafted masterpiece, designed to illuminate your grace with the finest kundan work.</p>
+          <div class="product-spotlight__price" data-spotlight-price>₹24,999</div>
+          <div class="product-spotlight__actions">
+            <a href="#" class="product-spotlight__btn-shop" data-spotlight-link>
+              Shop Now
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </a>
+            <button class="product-spotlight__btn-bag">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="product-spotlight__thumbs">
+          <button class="product-spotlight__thumb active" data-spotlight-thumb data-image="assets/Jimage3.webp" data-name="Heritage Kundan Necklace" data-desc="Experience the timeless elegance of our handcrafted masterpiece." data-price="₹24,999" data-tag="Bestseller">
+            <img src="assets/Jimage3.webp" alt="Heritage Kundan Necklace" loading="lazy">
+          </button>
+          <button class="product-spotlight__thumb" data-spotlight-thumb data-image="assets/herosection2.jpg" data-name="Royal Temple Set" data-desc="A stunning set inspired by ancient temple architecture and divine artistry." data-price="₹32,999" data-tag="Premium">
+            <img src="assets/herosection2.jpg" alt="Royal Temple Set" loading="lazy">
+          </button>
+          <button class="product-spotlight__thumb" data-spotlight-thumb data-image="assets/Jimage2.avif" data-name="Polki Diamond Bangles" data-desc="Handcrafted polki bangles with unparalleled brilliance and craftsmanship." data-price="₹18,499" data-tag="New">
+            <img src="assets/Jimage2.avif" alt="Polki Diamond Bangles" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- TESTIMONIALS -->
+<!-- ============================================= -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials__header scroll-animate">
+      <div class="testimonials__line"></div>
+      <h2 class="testimonials__title">Cherished by Thousands</h2>
+      <p class="testimonials__subtitle">Hear from our valued patrons about their Varaha Jewels experience</p>
+    </div>
+
+    <div class="testimonials__grid">
+      <div class="testimonial-card scroll-animate" style="transition-delay:0ms;">
+        <svg class="testimonial-card__quote" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+        <div style="position:relative;z-index:10;">
+          <div class="testimonial-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-card__text">"The craftsmanship is absolutely exquisite. I purchased a bridal set for my wedding, and it became the centerpiece of my entire ensemble."</p>
+          <div class="testimonial-card__sep"></div>
+          <div class="testimonial-card__author">
+            <img src="assets/dp1.avif" alt="Priya Sharma" class="testimonial-card__avatar" loading="lazy">
+            <div>
+              <p class="testimonial-card__name">Priya Sharma</p>
+              <p class="testimonial-card__location">Mumbai</p>
+              <div class="testimonial-card__verified">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span class="testimonial-card__verified-text">Verified Purchase</span>
+                <span class="testimonial-card__verified-platform">• via Amazon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card scroll-animate" style="transition-delay:150ms;">
+        <svg class="testimonial-card__quote" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+        <div style="position:relative;z-index:10;">
+          <div class="testimonial-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-card__text">"Varaha Jewels perfectly blends traditional artistry with contemporary elegance. Each piece feels like wearing a piece of heritage."</p>
+          <div class="testimonial-card__sep"></div>
+          <div class="testimonial-card__author">
+            <img src="assets/dp3.avif" alt="Anjali Reddy" class="testimonial-card__avatar" loading="lazy">
+            <div>
+              <p class="testimonial-card__name">Anjali Reddy</p>
+              <p class="testimonial-card__location">Hyderabad</p>
+              <div class="testimonial-card__verified">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span class="testimonial-card__verified-text">Verified Purchase</span>
+                <span class="testimonial-card__verified-platform">• via Flipkart</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card scroll-animate" style="transition-delay:300ms;">
+        <svg class="testimonial-card__quote" viewBox="0 0 24 24" fill="currentColor"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/></svg>
+        <div style="position:relative;z-index:10;">
+          <div class="testimonial-card__stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-card__text">"I have been a loyal customer for over a decade. The timeless designs and impeccable service keep me coming back. These are heirlooms."</p>
+          <div class="testimonial-card__sep"></div>
+          <div class="testimonial-card__author">
+            <img src="assets/DP.png" alt="Kavita Mehta" class="testimonial-card__avatar" loading="lazy">
+            <div>
+              <p class="testimonial-card__name">Kavita Mehta</p>
+              <p class="testimonial-card__location">Delhi</p>
+              <div class="testimonial-card__verified">
+                <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span class="testimonial-card__verified-text">Verified Purchase</span>
+                <span class="testimonial-card__verified-platform">• via Amazon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="testimonials__trust">
+      <div class="testimonials__trust-grid">
+        <div class="trust-badge animate-float" style="animation-delay:0s;">
+          <div class="trust-badge__icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="var(--copper)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <p class="trust-badge__value">4.9/5</p>
+          <p class="trust-badge__label">Customer Rating</p>
+        </div>
+        <div class="trust-badge animate-float" style="animation-delay:0.5s;">
+          <div class="trust-badge__icon"><span style="color:var(--copper);font-family:var(--font-royal);font-size:1.875rem;font-weight:700;">BIS</span></div>
+          <p class="trust-badge__label">Hallmark Certified</p>
+        </div>
+        <div class="trust-badge animate-float" style="animation-delay:1s;">
+          <div class="trust-badge__icon"><span style="color:var(--copper);font-size:1.875rem;font-weight:700;">✓</span></div>
+          <p class="trust-badge__label">Lifetime Warranty*</p>
+        </div>
+        <div class="trust-badge animate-float" style="animation-delay:1.5s;">
+          <div class="trust-badge__icon"><span style="color:var(--copper);font-family:var(--font-royal);font-size:1.875rem;font-weight:700;">30</span></div>
+          <p class="trust-badge__label">Day Returns*</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- CREATOR SHOWCASE -->
+<!-- ============================================= -->
+<section class="creator-showcase">
+  <div class="creator-showcase__bg">
+    <div class="creator-showcase__bg-circle creator-showcase__bg-circle--1"></div>
+    <div class="creator-showcase__bg-circle creator-showcase__bg-circle--2"></div>
+  </div>
+  <div class="container" style="position:relative;z-index:10;">
+    <div class="creator-showcase__header scroll-animate">
+      <span class="creator-showcase__badge">✨ Featured By Creators</span>
+      <h2 class="creator-showcase__title">Loved by Influencers</h2>
+      <p class="creator-showcase__subtitle">See how top fashion creators style our exquisite jewelry collections</p>
+    </div>
+
+    <div class="creator-showcase__desktop">
+      <div class="creator-showcase__scroll">
+        <div class="scroll-animate" style="flex-shrink:0;transition-delay:0ms;">
+          <div class="creator-video-card" data-creator-video>
+            <div class="creator-video-card__container">
+              <div class="creator-video-card__facade"><span class="creator-video-card__facade-text">Varaha</span></div>
+              <div class="creator-video-card__overlay"></div>
+              <div class="creator-video-card__play" data-play-btn><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" fill="white"/></svg></div>
+              <div class="creator-video-card__info">
+                <div class="creator-video-card__profile">
+                  <div class="creator-video-card__avatar">P</div>
+                  <div style="flex:1;min-width:0;"><div style="display:flex;align-items:center;gap:0.25rem;"><h3 class="creator-video-card__name">Priya Sharma</h3></div><p class="creator-video-card__handle">@priyastyle • 2.5M</p></div>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </div>
+                <span class="creator-video-card__product-tag">Wearing: Heritage Kundan Necklace</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-animate" style="flex-shrink:0;transition-delay:100ms;">
+          <div class="creator-video-card" data-creator-video>
+            <div class="creator-video-card__container">
+              <div class="creator-video-card__facade"><span class="creator-video-card__facade-text">Varaha</span></div>
+              <div class="creator-video-card__overlay"></div>
+              <div class="creator-video-card__play" data-play-btn><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" fill="white"/></svg></div>
+              <div class="creator-video-card__info">
+                <div class="creator-video-card__profile">
+                  <div class="creator-video-card__avatar">N</div>
+                  <div style="flex:1;min-width:0;"><div style="display:flex;align-items:center;gap:0.25rem;"><h3 class="creator-video-card__name">Nisha Kapoor</h3></div><p class="creator-video-card__handle">@nishafashion • 1.8M</p></div>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                </div>
+                <span class="creator-video-card__product-tag">Wearing: Traditional Jhumka Earrings</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-animate" style="flex-shrink:0;transition-delay:200ms;">
+          <div class="creator-video-card" data-creator-video>
+            <div class="creator-video-card__container">
+              <div class="creator-video-card__facade"><span class="creator-video-card__facade-text">Varaha</span></div>
+              <div class="creator-video-card__overlay"></div>
+              <div class="creator-video-card__play" data-play-btn><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" fill="white"/></svg></div>
+              <div class="creator-video-card__info">
+                <div class="creator-video-card__profile">
+                  <div class="creator-video-card__avatar">A</div>
+                  <div style="flex:1;min-width:0;"><div style="display:flex;align-items:center;gap:0.25rem;"><h3 class="creator-video-card__name">Anjali Mehta</h3></div><p class="creator-video-card__handle">@anjalijewels • 3.2M</p></div>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </div>
+                <span class="creator-video-card__product-tag">Wearing: Polki Diamond Bangles</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="creator-showcase__cta scroll-animate" style="transition-delay:500ms;">
+      <p style="font-size:1rem;color:#4b5563;margin-bottom:1.5rem;">Want to collaborate with us?</p>
+      <a href="#" class="creator-showcase__cta-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Become a Creator Partner
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================= -->
+<!-- FOOTER -->
+<!-- ============================================= -->
+<footer class="footer">
+  <div class="footer__top-line"></div>
+  <div class="container" style="position:relative;padding-top:4rem;padding-bottom:2.5rem;">
+
+    <!-- Metal Rates -->
+    <div class="footer__rates">
+      <div class="footer__rates-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <h5 class="footer__rates-label">Today's Live Rates (India)</h5>
+      </div>
+      <div class="footer__rates-grid">
+        <div class="footer__rate-card footer__rate-card--gold">
+          <div class="footer__rate-card-inner">
+            <div><p class="footer__rate-label">Gold (24K)</p><p class="footer__rate-price footer__rate-price--gold" data-gold-rate data-base="124040">₹1,24,040</p><p class="footer__rate-unit">per 10 grams</p></div>
+            <div style="text-align:right;"><span class="rate-change rate-up" data-gold-change>+0.5%</span><p style="font-size:0.75rem;color:rgba(244,230,216,0.4);margin-top:0.25rem;">Today</p></div>
+          </div>
+        </div>
+        <div class="footer__rate-card footer__rate-card--silver">
+          <div class="footer__rate-card-inner">
+            <div><p class="footer__rate-label">Silver (999)</p><p class="footer__rate-price footer__rate-price--silver" data-silver-rate data-base="208900">₹2,08,900</p><p class="footer__rate-unit">per 1 kg</p></div>
+            <div style="text-align:right;"><span class="rate-change rate-up" data-silver-change>+0.3%</span><p style="font-size:0.75rem;color:rgba(244,230,216,0.4);margin-top:0.25rem;">Today</p></div>
+          </div>
+        </div>
+      </div>
+      <p class="footer__rates-note"><span class="footer__rates-dot"></span>Simulated rates • Updates every 30 seconds</p>
+    </div>
+
+    <!-- Trust Badges -->
+    <div class="footer__trust">
+      <div class="footer__trust-item"><div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;"><div class="footer__trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div><div><p class="footer__trust-title">Free Shipping</p><p class="footer__trust-desc">On orders above ₹5000</p></div></div></div>
+      <div class="footer__trust-item"><div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;"><div class="footer__trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div><p class="footer__trust-title">7 Day Returns</p><p class="footer__trust-desc">Easy return policy</p></div></div></div>
+      <div class="footer__trust-item"><div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;"><div class="footer__trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4l3 12h14l3-12-5 4-5-4-5 4-5-4z"/><path d="M3 20h18"/></svg></div><div><p class="footer__trust-title">Lifetime Warranty</p><p class="footer__trust-desc">Certified jewellery</p></div></div></div>
+      <div class="footer__trust-item"><div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;"><div class="footer__trust-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><div><p class="footer__trust-title">100% Authentic</p><p class="footer__trust-desc">Guaranteed purity</p></div></div></div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="footer__grid">
+      <div style="display:flex;flex-direction:column;gap:1.5rem;">
+        <div class="footer__brand">
+          <img src="assets/logo.png" alt="Varaha Jewels" class="footer__brand-logo" loading="lazy">
+          <p class="footer__brand-tagline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--copper)" stroke-width="2"><path d="M2 4l3 12h14l3-12-5 4-5-4-5 4-5-4z"/></svg>
+            Where heritage meets royalty
+          </p>
+        </div>
+        <div>
+          <h3 class="footer__newsletter-title">Join Our Royal Family</h3>
+          <p class="footer__newsletter-desc" style="margin-bottom:1rem;">Get exclusive access to new collections, special offers, and royal treatment.</p>
+          <div style="position:relative;margin-bottom:0.75rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="footer__newsletter-icon"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <input type="email" placeholder="Enter your email address" class="footer__newsletter-input">
+          </div>
+          <button class="footer__newsletter-btn">Subscribe Now <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></button>
+        </div>
+        <div class="footer__contact" style="padding-top:1rem;border-top:1px solid rgba(163,86,42,0.2);">
+          <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72"/></svg>+91 98765 43210</a>
+          <a href="#"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@varahajewels.com</a>
+          <div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-top:2px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Jaipur, Rajasthan, India</div>
+        </div>
+      </div>
+
+      <div class="footer__links">
+        <div>
+          <h4 class="footer__links-title">Collections</h4>
+          <ul class="footer__links-list"><li><a href="#"><span class="arrow">→</span>Heritage</a></li><li><a href="#"><span class="arrow">→</span>Bridal</a></li><li><a href="#"><span class="arrow">→</span>Exclusive</a></li><li><a href="#"><span class="arrow">→</span>New Arrivals</a></li><li><a href="#"><span class="arrow">→</span>Best Sellers</a></li></ul>
+        </div>
+        <div>
+          <h4 class="footer__links-title">Support</h4>
+          <ul class="footer__links-list"><li><a href="#"><span class="arrow">→</span>Contact Us</a></li><li><a href="#"><span class="arrow">→</span>Track Order</a></li><li><a href="#"><span class="arrow">→</span>FAQs</a></li><li><a href="#"><span class="arrow">→</span>Shipping Info</a></li><li><a href="#"><span class="arrow">→</span>Size Guide</a></li></ul>
+        </div>
+        <div>
+          <h4 class="footer__links-title">Company</h4>
+          <ul class="footer__links-list"><li><a href="#"><span class="arrow">→</span>About Us</a></li><li><a href="#"><span class="arrow">→</span>Our Story</a></li><li><a href="#"><span class="arrow">→</span>Privacy Policy</a></li><li><a href="#"><span class="arrow">→</span>Terms</a></li><li><a href="#"><span class="arrow">→</span>Refund Policy</a></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer__bottom">
+      <div class="footer__bottom-inner">
+        <div class="footer__social">
+          <span class="footer__social-label">Follow Us:</span>
+          <div style="display:flex;gap:0.75rem;">
+            <a href="#" class="footer__social-link footer__social-link--ig" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="footer__social-link footer__social-link--fb" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="footer__social-link footer__social-link--tw" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer__payments">
+          <span class="footer__payments-label">Secure Payments:</span>
+          <div style="display:flex;gap:0.5rem;">
+            <div class="footer__payment-icon"><img src="assets/visa_icon.svg" alt="Visa" loading="lazy" style="height:1.25rem;"></div>
+            <div class="footer__payment-icon"><img src="assets/mastercard_icon.svg" alt="Mastercard" loading="lazy" style="height:1.25rem;"></div>
+            <div class="footer__payment-icon"><img src="assets/rupay_icon.svg" alt="RuPay" loading="lazy" style="height:1.25rem;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__copyright">
+        <p><span>© 2026 Varaha Jewels. All rights reserved.</span><span style="display:flex;align-items:center;gap:0.25rem;"> Made with <svg class="footer__heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg> in India</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="footer__glow"></div>
+</footer>
+
+<!-- Back to Top -->
+<button data-back-to-top aria-label="Back to top" style="position:fixed;bottom:2rem;right:2rem;z-index:50;width:3rem;height:3rem;border-radius:50%;background:var(--copper);color:var(--warm-sand);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(163,86,42,0.3);opacity:0;transform:translateY(1rem);transition:opacity 0.3s,transform 0.3s,background 0.3s;pointer-events:none;">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+<style>[data-back-to-top].visible{opacity:1!important;transform:translateY(0)!important;pointer-events:auto!important;}[data-back-to-top]:hover{background:var(--heritage)!important;}</style>
+
+<!-- JS -->
+<script src="assets/theme.js"></script>
+</body>
+</html>

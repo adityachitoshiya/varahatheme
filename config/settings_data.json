@@ -1,0 +1,33 @@
+{
+  "current": {
+    "color_royal_orange": "#E07A24",
+    "color_copper": "#A3562A",
+    "color_heritage": "#7A3B23",
+    "color_matte_brown": "#B46D3C",
+    "color_warm_sand": "#F4E6D8",
+    "color_ivory_smoke": "#EFE9E2",
+    "social_instagram": "https://www.instagram.com/varahajewels",
+    "social_facebook": "https://www.facebook.com/varahajewels",
+    "social_twitter": "https://twitter.com/varahajewels",
+    "contact_phone": "+91 98765 43210",
+    "contact_email": "hello@varahajewels.com",
+    "contact_address": "Jaipur, Rajasthan, India",
+    "show_metal_rates": true,
+    "gold_rate": "124040",
+    "silver_rate": "208900",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {}
+      },
+      "header": {
+        "type": "header",
+        "settings": {}
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      }
+    }
+  }
+}

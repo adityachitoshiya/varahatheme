@@ -1,0 +1,82 @@
+{% comment %}
+  Varaha Jewels — Delivery Availability Bar
+  Pincode checker with express delivery for Jaipur
+{% endcomment %}
+
+<div style="position:relative;z-index:40;background:linear-gradient(to right,var(--heritage),var(--copper),var(--heritage));border-bottom:1px solid rgba(163,86,42,0.3);box-shadow:var(--shadow-md);">
+  <div style="max-width:80rem;margin:0 auto;padding:0 0.75rem;">
+    <div style="display:flex;align-items:center;justify-content:space-between;height:2.75rem;" id="delivery-bar">
+      <div style="display:flex;align-items:center;gap:0.5rem;flex:1;min-width:0;">
+        <div style="flex-shrink:0;width:1.75rem;height:1.75rem;border-radius:50%;background:rgba(239,233,226,0.1);backdrop-filter:blur(4px);border:1px solid rgba(239,233,226,0.2);display:flex;align-items:center;justify-content:center;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--ivory-smoke)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div style="flex:1;min-width:0;">
+          <p id="delivery-message" style="font-size:0.75rem;font-weight:600;color:var(--ivory-smoke);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+            📦 Enter pincode to check delivery
+          </p>
+        </div>
+      </div>
+
+      <button
+        onclick="document.getElementById('pincode-panel').style.display=document.getElementById('pincode-panel').style.display==='none'?'block':'none'"
+        style="font-size:0.75rem;font-weight:500;color:rgba(239,233,226,0.8);background:none;border:none;cursor:pointer;padding:0.25rem 0.5rem;border-radius:0.25rem;transition:all 0.2s;"
+      >
+        Check
+      </button>
+    </div>
+  </div>
+
+  <!-- Pincode Input Panel -->
+  <div id="pincode-panel" style="display:none;border-top:1px solid rgba(239,233,226,0.2);background:rgba(122,59,35,0.95);backdrop-filter:blur(4px);">
+    <div style="max-width:80rem;margin:0 auto;padding:0.75rem;">
+      <form onsubmit="checkPincode(event)" style="display:flex;gap:0.5rem;align-items:flex-end;">
+        <div style="flex:1;">
+          <label style="display:block;font-size:0.75rem;font-weight:500;color:rgba(239,233,226,0.8);margin-bottom:0.25rem;">Pincode</label>
+          <input
+            type="text"
+            id="pincode-input"
+            placeholder="302012"
+            maxlength="6"
+            style="width:100%;padding:0.5rem 0.75rem;border-radius:0.5rem;background:rgba(0,0,0,0.2);border:2px solid rgba(239,233,226,0.3);color:var(--ivory-smoke);font-size:0.875rem;outline:none;"
+          >
+        </div>
+        <button type="submit" style="padding:0.5rem 1rem;background:linear-gradient(to right,var(--copper),var(--royal-orange));color:white;font-weight:600;border-radius:0.5rem;border:none;cursor:pointer;font-size:0.75rem;white-space:nowrap;">
+          Check
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  function checkPincode(e) {
+    e.preventDefault();
+    var pin = document.getElementById('pincode-input').value.replace(/\D/g, '');
+    if (pin.length !== 6) return;
+
+    var jaipurPins = ['302001','302002','302003','302004','302005','302006','302010','302012','302015','302016','302017','302018','302019','302020','302021','302022','302023','302024','302025','302026','302027','302028','302029','302030','302031','302033','302034','302036','302039'];
+    var isJaipur = jaipurPins.indexOf(pin) !== -1 || pin.substring(0,4) === '3020';
+
+    var msg = isJaipur
+      ? '🚀 Express Delivery to ' + pin + ' • 2-4 Hours!'
+      : '📦 Deliver to ' + pin + ' • ETA: 3-5 days';
+
+    document.getElementById('delivery-message').textContent = msg;
+    document.getElementById('pincode-panel').style.display = 'none';
+    localStorage.setItem('varaha_pincode', pin);
+    localStorage.setItem('varaha_delivery_msg', msg);
+  }
+
+  // Restore saved delivery
+  (function() {
+    var saved = localStorage.getItem('varaha_delivery_msg');
+    if (saved) document.getElementById('delivery-message').textContent = saved;
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Delivery Bar",
+  "settings": []
+}
+{% endschema %}

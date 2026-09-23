@@ -1,0 +1,62 @@
+{% comment %}
+  Snippet: Creator Video Card
+  Used in creator-showcase section
+{% endcomment %}
+
+<div class="creator-video-card" data-creator-video>
+  <div class="creator-video-card__container">
+    {% if block.settings.video_file != blank %}
+      <video
+        class="creator-video-card__video"
+        src="{{ block.settings.video_file }}"
+        loop
+        playsinline
+        muted
+        preload="none"
+        style="display:none;"
+      ></video>
+    {% endif %}
+
+    <!-- Facade -->
+    <div class="creator-video-card__facade">
+      <span class="creator-video-card__facade-text">Varaha</span>
+    </div>
+
+    <!-- Overlay -->
+    <div class="creator-video-card__overlay"></div>
+
+    <!-- Play Button -->
+    <div class="creator-video-card__play" data-play-btn>
+      <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+    </div>
+
+    <!-- Creator Info -->
+    <div class="creator-video-card__info">
+      <div class="creator-video-card__profile">
+        <div class="creator-video-card__avatar">
+          {{ block.settings.name | slice: 0 | upcase }}
+        </div>
+        <div style="flex:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:0.25rem;">
+            <h3 class="creator-video-card__name truncate">{{ block.settings.name }}</h3>
+            {% if block.settings.verified %}
+              <svg class="creator-video-card__verified" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+            {% endif %}
+          </div>
+          <p class="creator-video-card__handle truncate">{{ block.settings.handle }} • {{ block.settings.followers }}</p>
+        </div>
+        <div class="creator-video-card__platform">
+          {% if block.settings.platform == 'instagram' %}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          {% else %}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+          {% endif %}
+        </div>
+      </div>
+
+      <span class="creator-video-card__product-tag">Wearing: {{ block.settings.product_name }}</span>
+    </div>
+  </div>
+</div>

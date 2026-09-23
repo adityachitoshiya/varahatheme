@@ -1,0 +1,116 @@
+{% comment %}
+  Varaha Jewels — Main Collection Section
+  Displays products in a grid with the Varaha aesthetic
+{% endcomment %}
+
+{{ 'section-featured-collections.css' | asset_url | stylesheet_tag }}
+
+<section style="padding:3rem 0 6rem;background:var(--warm-sand);min-height:80vh;">
+  <div class="container">
+    <!-- Header -->
+    <div style="text-align:center;margin-bottom:3rem;" class="scroll-animate">
+      <div style="width:4rem;height:1px;background:var(--copper);margin:0 auto 1.5rem;"></div>
+      <h1 style="font-family:var(--font-royal);font-size:clamp(2.5rem,6vw,3.75rem);font-weight:700;color:var(--heritage);margin-bottom:1rem;">
+        {{ collection.title }}
+      </h1>
+      {% if collection.description != blank %}
+        <p style="font-family:var(--font-playfair);font-size:1.125rem;color:rgba(122,59,35,0.7);max-width:42rem;margin:0 auto;font-weight:300;">
+          {{ collection.description }}
+        </p>
+      {% endif %}
+      <p style="font-size:0.875rem;color:rgba(122,59,35,0.5);margin-top:1rem;">{{ collection.products_count }} products</p>
+    </div>
+
+    <!-- Product Grid -->
+    {% paginate collection.products by section.settings.products_per_page %}
+      {% if collection.products.size > 0 %}
+        <div class="collection-page-grid">
+          {% for product in collection.products %}
+            <a
+              href="{{ product.url }}"
+              class="collection-card scroll-animate"
+              style="transition-delay:{{ forloop.index0 | times: 100 }}ms;border-radius:0.5rem;"
+            >
+              <div class="collection-card__image-wrap" style="height:16rem;">
+                {% if product.featured_image %}
+                  <img
+                    src="{{ product.featured_image | image_url: width: 480 }}"
+                    alt="{{ product.title | escape }}"
+                    class="collection-card__image"
+                    loading="lazy"
+                    width="480"
+                    height="384"
+                  >
+                {% else %}
+                  {{ 'product-1' | placeholder_svg_tag: 'collection-card__image' }}
+                {% endif %}
+              </div>
+              <div class="collection-card__body" style="padding:1.25rem;">
+                <h3 class="collection-card__name" style="font-size:1.125rem;margin-bottom:0.5rem;">{{ product.title }}</h3>
+                <p style="color:var(--copper);font-weight:500;font-size:1rem;">{{ product.price | money }}</p>
+                {% if product.compare_at_price > product.price %}
+                  <p style="font-size:0.75rem;color:rgba(122,59,35,0.5);text-decoration:line-through;">{{ product.compare_at_price | money }}</p>
+                {% endif %}
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if paginate.pages > 1 %}
+          <div style="display:flex;justify-content:center;gap:0.5rem;margin-top:3rem;flex-wrap:wrap;">
+            {% if paginate.previous %}
+              <a href="{{ paginate.previous.url }}" class="btn btn-secondary" style="font-size:0.875rem;padding:0.5rem 1rem;">← Previous</a>
+            {% endif %}
+            {% for part in paginate.parts %}
+              {% if part.is_link %}
+                <a href="{{ part.url }}" style="padding:0.5rem 1rem;border:1px solid rgba(163,86,42,0.3);border-radius:2px;color:var(--heritage);text-decoration:none;font-size:0.875rem;transition:all 0.2s;">{{ part.title }}</a>
+              {% else %}
+                <span style="padding:0.5rem 1rem;background:var(--copper);color:var(--warm-sand);border-radius:2px;font-size:0.875rem;">{{ part.title }}</span>
+              {% endif %}
+            {% endfor %}
+            {% if paginate.next %}
+              <a href="{{ paginate.next.url }}" class="btn btn-secondary" style="font-size:0.875rem;padding:0.5rem 1rem;">Next →</a>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% else %}
+        <div style="text-align:center;padding:4rem 0;">
+          <p style="color:rgba(122,59,35,0.6);font-size:1.125rem;">No products found in this collection.</p>
+          <a href="/collections/all" class="btn btn-primary" style="margin-top:1.5rem;">Browse All Collections</a>
+        </div>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
+
+<style>
+  .collection-page-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    .collection-page-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 1280px) {
+    .collection-page-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 24
+    }
+  ]
+}
+{% endschema %}

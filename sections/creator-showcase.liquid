@@ -1,0 +1,158 @@
+{% comment %}
+  Varaha Jewels — Creator Showcase
+  Video reels from influencers — desktop horizontal scroll + mobile carousel
+{% endcomment %}
+
+{{ 'section-creator-showcase.css' | asset_url | stylesheet_tag }}
+
+<section class="creator-showcase">
+  <div class="creator-showcase__bg">
+    <div class="creator-showcase__bg-circle creator-showcase__bg-circle--1"></div>
+    <div class="creator-showcase__bg-circle creator-showcase__bg-circle--2"></div>
+  </div>
+
+  <div class="container" style="position:relative;z-index:10;">
+    <!-- Header -->
+    <div class="creator-showcase__header scroll-animate">
+      <span class="creator-showcase__badge">✨ Featured By Creators</span>
+      <h2 class="creator-showcase__title">{{ section.settings.heading }}</h2>
+      <p class="creator-showcase__subtitle">{{ section.settings.subheading }}</p>
+    </div>
+
+    {% if section.blocks.size > 0 %}
+
+      <!-- Desktop View -->
+      <div class="creator-showcase__desktop">
+        <div class="creator-showcase__scroll">
+          {% for block in section.blocks %}
+            <div class="scroll-animate" style="flex-shrink:0;transition-delay:{{ forloop.index0 | times: 100 }}ms;" {{ block.shopify_attributes }}>
+              {% render 'creator-video-card', block: block %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Mobile Carousel -->
+      <div class="creator-showcase__mobile" data-creator-carousel>
+        <div class="creator-showcase__carousel">
+          <div class="creator-showcase__track" data-creator-track>
+            {% for block in section.blocks %}
+              <div class="creator-showcase__slide" data-creator-slide {{ block.shopify_attributes }}>
+                {% render 'creator-video-card', block: block %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Dots -->
+        <div class="creator-showcase__dots">
+          {% for block in section.blocks %}
+            <button class="creator-showcase__dot{% if forloop.first %} active{% endif %}" data-creator-dot aria-label="Go to creator {{ forloop.index }}"></button>
+          {% endfor %}
+        </div>
+      </div>
+
+    {% endif %}
+
+    <!-- CTA -->
+    <div class="creator-showcase__cta scroll-animate" style="transition-delay:500ms;">
+      <p style="font-size:1rem;color:#4b5563;margin-bottom:1.5rem;">Want to collaborate with us?</p>
+      <a href="mailto:collaborate@varahajewels.com" class="creator-showcase__cta-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Become a Creator Partner
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Creator Showcase",
+  "class": "creator-showcase-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Loved by Influencers"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "See how top fashion creators style our exquisite jewelry collections"
+    }
+  ],
+  "max_blocks": 8,
+  "blocks": [
+    {
+      "type": "creator",
+      "name": "Creator",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Creator Name",
+          "default": "Priya Sharma"
+        },
+        {
+          "type": "text",
+          "id": "handle",
+          "label": "Social Handle",
+          "default": "@priyastyle"
+        },
+        {
+          "type": "select",
+          "id": "platform",
+          "label": "Platform",
+          "options": [
+            { "value": "instagram", "label": "Instagram" },
+            { "value": "youtube", "label": "YouTube" }
+          ],
+          "default": "instagram"
+        },
+        {
+          "type": "text",
+          "id": "followers",
+          "label": "Followers",
+          "default": "2.5M"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Video URL",
+          "accept": ["youtube", "vimeo"]
+        },
+        {
+          "type": "text",
+          "id": "video_file",
+          "label": "Video File URL (direct MP4 link)",
+          "info": "Paste direct link to an MP4 video file"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Worn",
+          "default": "Heritage Kundan Necklace"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Verified Creator",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Creator Showcase",
+      "blocks": [
+        { "type": "creator", "settings": { "name": "Priya Sharma", "handle": "@priyastyle", "platform": "instagram", "followers": "2.5M", "product_name": "Heritage Kundan Necklace" } },
+        { "type": "creator", "settings": { "name": "Nisha Kapoor", "handle": "@nishafashion", "platform": "youtube", "followers": "1.8M", "product_name": "Traditional Jhumka Earrings" } },
+        { "type": "creator", "settings": { "name": "Anjali Mehta", "handle": "@anjalijewels", "platform": "instagram", "followers": "3.2M", "product_name": "Polki Diamond Bangles" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,463 @@
+/* =============================================
+   VARAHA JEWELS — Shopify Theme Base CSS
+   Premium Heritage Jewelry — Global Styles
+   ============================================= */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* =============================================
+   CSS Custom Properties (Design Tokens)
+   ============================================= */
+:root {
+  --royal-orange: #E07A24;
+  --copper: #A3562A;
+  --heritage: #7A3B23;
+  --matte-brown: #B46D3C;
+  --warm-sand: #F4E6D8;
+  --ivory-smoke: #EFE9E2;
+  --prestige: #0F0C0A;
+
+  --font-royal: 'Cormorant Garamond', serif;
+  --font-playfair: 'Playfair Display', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
+  --shadow-xl: 0 20px 50px rgba(0,0,0,0.15);
+  --shadow-copper: 0 8px 30px rgba(163, 86, 42, 0.2);
+
+  --transition-fast: 200ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+  --transition-slower: 700ms ease;
+}
+
+/* =============================================
+   Reset & Base
+   ============================================= */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  color-scheme: light;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: var(--warm-sand);
+  color: var(--heritage);
+  overflow-x: clip;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* App-like touch response */
+a, button, input, select, textarea, .clickable {
+  touch-action: manipulation;
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =============================================
+   Typography
+   ============================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-royal);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.heading-royal { font-family: var(--font-royal); }
+.subheading-royal { font-family: var(--font-playfair); }
+.font-playfair { font-family: var(--font-playfair); }
+.font-royal { font-family: var(--font-royal); }
+.font-sans { font-family: var(--font-sans); }
+
+/* Responsive Text Sizing */
+.text-responsive-xs { font-size: clamp(0.75rem, 2vw, 0.875rem); }
+.text-responsive-sm { font-size: clamp(0.875rem, 2.5vw, 1rem); }
+.text-responsive-base { font-size: clamp(1rem, 3vw, 1.125rem); }
+.text-responsive-lg { font-size: clamp(1.125rem, 3.5vw, 1.25rem); }
+.text-responsive-xl { font-size: clamp(1.25rem, 4vw, 1.5rem); }
+.text-responsive-2xl { font-size: clamp(1.5rem, 5vw, 2rem); }
+.text-responsive-3xl { font-size: clamp(1.875rem, 6vw, 2.5rem); }
+.text-responsive-4xl { font-size: clamp(2.25rem, 7vw, 3rem); }
+.text-responsive-5xl { font-size: clamp(3rem, 8vw, 4rem); }
+
+/* =============================================
+   Utility Classes
+   ============================================= */
+.container {
+  width: 100%;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Scrollbar Hide */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Safe area for mobile notches */
+.safe-area-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
+/* Line clamp */
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Truncate */
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* =============================================
+   Buttons
+   ============================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.875rem;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.btn-primary {
+  background-color: var(--copper);
+  color: var(--warm-sand);
+  border: 1px solid var(--copper);
+}
+.btn-primary:hover {
+  background-color: var(--heritage);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--heritage);
+  border: 1px solid var(--copper);
+}
+.btn-secondary:hover {
+  background-color: rgba(163, 86, 42, 0.05);
+}
+
+.btn-gradient {
+  background: linear-gradient(to right, var(--copper), var(--royal-orange), var(--copper));
+  color: white;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  border: none;
+}
+.btn-gradient:hover {
+  box-shadow: 0 10px 30px rgba(163, 86, 42, 0.4);
+  transform: scale(1.03);
+}
+
+/* =============================================
+   Grid System
+   ============================================= */
+.grid-responsive {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+/* =============================================
+   Keyframe Animations
+   ============================================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(1.875rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-1.25rem); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(1.875rem, -1.875rem) scale(1.1); }
+  66% { transform: translate(-1.25rem, 1.25rem) scale(0.9); }
+}
+
+@keyframes floatMedium {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-40px, -40px) rotate(180deg); }
+}
+
+@keyframes floatFast {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(1.25rem, 1.25rem); }
+  50% { transform: translate(-1.25rem, 1.875rem); }
+  75% { transform: translate(1.875rem, -1.25rem); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes goldShine {
+  0% { box-shadow: 0 0 0.625rem rgba(224, 122, 36, 0.3); }
+  50% { box-shadow: 0 0 1.5625rem rgba(224, 122, 36, 0.6), 0 0 2.5rem rgba(224, 122, 36, 0.3); }
+  100% { box-shadow: 0 0 0.625rem rgba(224, 122, 36, 0.3); }
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.3); }
+  50% { transform: scale(1.1); }
+  75% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+@keyframes gradientMove {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes widthExpand {
+  from { width: 0; opacity: 0; }
+  to { width: 8rem; opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Animation Classes */
+.animate-fadeUp { animation: fadeUp 0.8s ease-out forwards; }
+.animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
+.animate-scaleIn { animation: scaleIn 0.6s ease-out forwards; }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-float-slow { animation: floatSlow 20s ease-in-out infinite; }
+.animate-float-medium { animation: floatMedium 15s ease-in-out infinite; }
+.animate-float-fast { animation: floatFast 10s ease-in-out infinite; }
+.animate-rotate { animation: rotate 3s linear infinite; }
+.animate-pulse { animation: pulse 2s ease-in-out infinite; }
+.animate-goldShine { animation: goldShine 3s ease-in-out infinite; }
+.animate-heartbeat { animation: heartbeat 0.6s ease-in-out; }
+.animate-slideInRight { animation: slideInRight 0.3s ease-out; }
+.animate-slideDown { animation: slideDown 0.3s ease-out; }
+.animate-width-expand { animation: widthExpand 1.5s ease-out 1s forwards; }
+.animate-spin { animation: spin 1s linear infinite; }
+
+/* Scroll Animation */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(1.875rem);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.scroll-animate.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Shimmer Effect */
+.shimmer-line {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-line::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(244, 230, 216, 0.6), transparent);
+  animation: shimmer 1.5s infinite;
+  transform: translateX(-100%);
+}
+
+/* =============================================
+   Responsive Breakpoints
+   ============================================= */
+@media (min-width: 375px) {
+  html { font-size: 16px; }
+}
+
+@media (min-width: 640px) {
+  html { font-size: 17px; }
+  .container { max-width: 40rem; padding: 0 1.5rem; }
+  .grid-responsive { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+}
+
+@media (min-width: 768px) {
+  html { font-size: 18px; }
+  .container { max-width: 48rem; padding: 0 2rem; }
+  input, select, textarea, button { font-size: 1rem; }
+}
+
+@media (min-width: 1024px) {
+  .container { max-width: 64rem; }
+  .grid-responsive { grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+}
+
+@media (min-width: 1280px) {
+  .container { max-width: 80rem; }
+}
+
+@media (min-width: 1366px) and (max-width: 1439px) {
+  html { font-size: 16px; }
+}
+
+@media (min-width: 1440px) and (max-width: 1599px) {
+  html { font-size: 16px; }
+  .container { max-width: 1400px; }
+}
+
+@media (min-width: 1536px) {
+  html { font-size: 18px; }
+  .container { max-width: 96rem; }
+  .grid-responsive { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 1600px) and (max-width: 1919px) {
+  html { font-size: 17px; }
+  .container { max-width: 1600px; }
+}
+
+@media (min-width: 1920px) {
+  html { font-size: 20px; }
+  .container { max-width: 1920px; }
+}
+
+@media (min-width: 2560px) {
+  html { font-size: 22px; }
+  .container { max-width: 150rem; }
+}
+
+/* =============================================
+   Mobile Form Zoom Prevention
+   ============================================= */
+@media screen and (max-width: 768px) {
+  input, select, textarea { font-size: 16px !important; }
+}
+
+/* =============================================
+   Touch Device Optimizations
+   ============================================= */
+@media (hover: none) and (pointer: coarse) {
+  button, a, input, select, textarea {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* =============================================
+   Accessibility — Reduced Motion
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =============================================
+   High DPI / Retina
+   ============================================= */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  img { image-rendering: -webkit-optimize-contrast; }
+}
+
+/* =============================================
+   Print Styles
+   ============================================= */
+@media print {
+  body { background: white; color: black; }
+  .no-print { display: none !important; }
+}
+
+/* =============================================
+   Page Transitions
+   ============================================= */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(0.625rem);
+}
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* =============================================
+   Skeleton / Loading States
+   ============================================= */
+.skeleton {
+  background: linear-gradient(90deg, rgba(244,230,216,0.4) 25%, rgba(244,230,216,0.7) 50%, rgba(244,230,216,0.4) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}

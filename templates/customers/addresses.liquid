@@ -1,0 +1,22 @@
+{% comment %} Varaha Jewels — Customer Addresses {% endcomment %}
+
+<section style="padding:3rem 0 6rem;background:var(--warm-sand);min-height:60vh;">
+  <div class="container" style="max-width:48rem;">
+    <a href="/account" style="color:var(--copper);font-size:0.875rem;text-decoration:none;margin-bottom:1.5rem;display:inline-block;">← Back to Account</a>
+
+    <h1 style="font-family:var(--font-royal);font-size:2.5rem;font-weight:700;color:var(--heritage);margin-bottom:2rem;">Your Addresses</h1>
+
+    {% for address in customer.addresses %}
+      <div style="background:white;border-radius:0.75rem;padding:1.5rem;border:1px solid rgba(163,86,42,0.2);margin-bottom:1rem;">
+        {% if address == customer.default_address %}
+          <span style="font-size:0.75rem;font-weight:600;color:#15803d;background:rgba(22,163,74,0.1);padding:0.125rem 0.5rem;border-radius:9999px;margin-bottom:0.75rem;display:inline-block;">Default</span>
+        {% endif %}
+        <p style="color:var(--heritage);line-height:1.6;">{{ address | format_address }}</p>
+      </div>
+    {% endfor %}
+
+    {% if customer.addresses.size == 0 %}
+      <p style="color:rgba(122,59,35,0.5);text-align:center;padding:2rem 0;">No addresses saved yet.</p>
+    {% endif %}
+  </div>
+</section>
